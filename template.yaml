@@ -3,7 +3,7 @@ kind: Template
 # some metadata about the template itself
 metadata:
   name: v1beta2-demo
-  title: Test Action template v2
+  title: Test Action template
   description: scaffolder v1beta2 template demo
 spec:
   owner: backstage/techdocs-core
@@ -22,6 +22,14 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
     - title: Choose a location
       required:
         - repoUrl
@@ -40,9 +48,17 @@ spec:
       name: Fetch Base
       action: fetch:cookiecutter
       input:
-        url: ./skeleton
+        url: ./template
         values:
           name: '{{ parameters.name }}'
+          owner: '{{ parameters.owner }}'
+
+    - id: fetch-docs
+      name: Fetch Docs
+      action: fetch:plain
+      input:
+        targetPath: ./community
+        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
 
     - id: publish
       name: Publish
@@ -58,4 +74,8 @@ spec:
       input:
         repoContentsUrl: '{{ steps.publish.output.repoContentsUrl }}'
         catalogInfoPath: '/catalog-info.yaml'
-        
+
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    remoteUrl: '{{ steps.publish.output.remoteUrl }}'
+    entityRef: '{{ steps.register.output.entityRef }}'
