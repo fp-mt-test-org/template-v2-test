@@ -14,7 +14,7 @@ jobs:
     env:
       flex: ./flex.sh
 
-      artifactory_base_url: "{{\"neat\"}}"
+      artifactory_base_url: '{{"neat"}}'
       artifactory_username: "user"
       artifactory_password: "pass"
 
