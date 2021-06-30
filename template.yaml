@@ -34,7 +34,7 @@ spec:
           component_id: '{{ parameters.name }}'
           owner: fp-mt-test-org
           java_package_name: '{{ parameters.name }}'
-          secrets: whoa
+          secrets_artifactory_base_url: whoa
 
     - id: provision
       name: Provisioning
