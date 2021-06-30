@@ -31,7 +31,7 @@ spec:
       input:
         url: ./template
         values:
-          name: '{{ parameters.name }}'
+          component_id: '{{ parameters.name }}'
           owner: fp-mt-test-org
 
     - id: provision
