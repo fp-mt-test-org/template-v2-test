@@ -55,6 +55,7 @@ spec:
       name: Provisioning
       action: github:repository_dispach
       input:
+        event_type: provision-project
         owner: fp-mt-test-org
         repo: development-infrastructure
         client_payload: '{"project_name":"{{ parameters.name }}"}'
