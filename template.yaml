@@ -22,14 +22,6 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        owner:
-          title: Owner
-          type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            allowedKinds:
-              - Group
     - title: Choose a location
       required:
         - repoUrl
@@ -51,7 +43,6 @@ spec:
         url: ./template
         values:
           name: '{{ parameters.name }}'
-          owner: '{{ parameters.owner }}'
 
     - id: fetch-docs
       name: Fetch Docs
@@ -64,8 +55,8 @@ spec:
       name: Provisioning
       action: github:repository_dispach
       input:
-        owner: "test"
-        repo: "test.txt"
+        owner: "fp-mt-test-org"
+        repo: '{{ parameters.name }}'
 
     - id: publish
       name: Publish
