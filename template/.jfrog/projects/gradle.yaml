@@ -2,10 +2,9 @@ version: 1
 type: gradle
 resolver:
   repo: mvn
-  serverId: artifactory.flexport.io
+  serverId: artifactory
 deployer:
   repo: {{cookiecutter.component_id}}-mvn-sandbox-local
-  serverId: artifactory.flexport.io
-  ivyPattern: '[organization]/[module]/ivy-[revision].xml'
+  serverId: artifactory
   artifactPattern: '[organization]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'
 useWrapper: true
