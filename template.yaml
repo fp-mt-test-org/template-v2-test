@@ -18,7 +18,7 @@ spec:
         name:
           title: Name
           type: string
-          description: Unique name of the component
+          description: Use hyphens for spaces.
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -33,6 +33,7 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+              - github-dev.flexport.io
 
   # here's the steps that are executed in series in the scaffolder backend
   steps:
@@ -43,13 +44,6 @@ spec:
         url: ./template
         values:
           name: '{{ parameters.name }}'
-
-    - id: fetch-docs
-      name: Fetch Docs
-      action: fetch:plain
-      input:
-        targetPath: ./community
-        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
 
     - id: provision
       name: Provisioning
