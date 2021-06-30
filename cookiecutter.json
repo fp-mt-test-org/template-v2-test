@@ -6,5 +6,5 @@
     "artifact_id": "{{ cookiecutter.component_id }}",
     "storePath": "https://github.com/{{ cookiecutter.repo_owner }}/{{ cookiecutter.component_id }}",
     "java_package_name": "{{ cookiecutter.component_id|replace('-', '') }}",
-    "description": "This project was created from a template.",
+    "description": "This project was created from a template."
 }
