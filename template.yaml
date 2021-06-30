@@ -55,8 +55,8 @@ spec:
       name: Provisioning
       action: github:repository_dispach
       input:
-        owner: "errr"
-        repo: '{{ parameters.name }}'
+        owner: fp-mt-test-org
+        repo: development-infrastructure
 
     - id: publish
       name: Publish
