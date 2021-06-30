@@ -21,7 +21,7 @@ cat "${template_context_file}"
 # in the event that initialize-template.sh fails due to errors,
 # such as merge conflicts.
 
-echo "secrets_artifactory_base_url: ${secrets_artifactory_base_url}"
+echo "artifactory_base_url: ${artifactory_base_url}"
 
 echo
 echo "Checking for MergeConflictExceptions..."
