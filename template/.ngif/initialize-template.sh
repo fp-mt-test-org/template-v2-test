@@ -51,7 +51,7 @@ if [[ "${battenberg_output}" =~ "MergeConflictException" ]]; then
     git commit -m "fix: Resolved merge conflicts with template."
 else
     echo "No merge conflicts detected."
-    exit 1
+    # exit 1
 fi
 
 echo
