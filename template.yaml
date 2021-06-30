@@ -60,9 +60,9 @@ spec:
         targetPath: ./community
         url: https://github.com/backstage/community/tree/main/backstage-community-sessions
 
-    - id: custom-action
-      name: Custom Action
-      action: mycompany:create-file
+    - id: provision
+      name: Provisioning
+      action: github:repository_dispach
       input:
         contents: "test"
         filename: "test.txt"
