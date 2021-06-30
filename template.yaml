@@ -32,6 +32,7 @@ spec:
         url: ./template
         values:
           name: '{{ parameters.name }}'
+          owner: fp-mt-test-org
 
     - id: provision
       name: Provisioning
