@@ -22,7 +22,17 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-
+    - title: Choose a location
+    required:
+      - repoUrl
+    properties:
+      repoUrl:
+        title: Repository Location
+        type: string
+        ui:field: RepoUrlPicker
+        ui:options:
+          allowedHosts:
+            - github.com
   # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: fetch-base
@@ -50,7 +60,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: 'This is {{ parameters.name }}'
-        repoUrl: 'https://github.com/fp-mt-test-org/{{ parameters.name }}'
+        repoUrl: '{{ parameters.repoUrl }}'
 
     - id: register
       name: Register
