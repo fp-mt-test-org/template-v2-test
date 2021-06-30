@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: {{cookiecutter.component_id}}
+  name: {{cookiecutter.project_name}}
   description: "testing"
   annotations:
     github.com/project-slug: "testing"
@@ -10,4 +10,4 @@ metadata:
 spec:
   type: library
   lifecycle: experimental
-  owner: "testing"
+  owner: "{{cookiecutter.owner}}"
