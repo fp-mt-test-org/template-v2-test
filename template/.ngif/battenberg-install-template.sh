@@ -46,4 +46,8 @@ template_context_path="./${template_context_file}"
     # description [*****]:
     jq -r '.description' ${template_context_path}
     sleep 1;
+
+    # description [*****]:
+    jq -r '.secrets_artifactory_base_url' ${template_context_path}
+    sleep 1;
 } | battenberg install "${github_base_url}/${template_name}"
