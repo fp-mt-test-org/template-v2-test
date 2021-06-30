@@ -46,8 +46,4 @@ template_context_path="./${template_context_file}"
     # description [*****]:
     jq -r '.description' ${template_context_path}
     sleep 1;
-
-    # destination [default]:
-    jq -rc '.destination' ${template_context_path}
-    sleep 1;
 } | battenberg install "${github_base_url}/${template_name}"
