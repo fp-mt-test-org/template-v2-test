@@ -7,7 +7,7 @@
     "storePath": "https://github.com/{{ cookiecutter.repo_owner }}/{{ cookiecutter.component_id }}",
     "java_package_name": "{{ cookiecutter.component_id|replace('-', '') }}",
     "description": "This project was created from a template.",
-    "secrets_artifactory_base_url": "\${{ secrets.artifactory_base_url }}",
-    "secrets_artifactory_username": "\${{ secrets.artifactory_username }}",
-    "secrets_artifactory_password": "\${{ secrets.artifactory_password }}"
+    "secrets_artifactory_base_url": "${{ \"b\" }}",
+    "secrets_artifactory_username": "${{ \"u\" }}",
+    "secrets_artifactory_password": "${{ \"pw\" }}"
 }
