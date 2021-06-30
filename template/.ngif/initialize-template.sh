@@ -22,6 +22,8 @@ cat "${template_context_file}"
 # such as merge conflicts.
 
 echo "artifactory_base_url: ${artifactory_base_url}"
+echo "artifactory_username: ${artifactory_username}"
+echo "artifactory_password: ${artifactory_password}"
 
 echo
 echo "Checking for MergeConflictExceptions..."
