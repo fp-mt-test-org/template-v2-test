@@ -12,7 +12,7 @@ github_base_url="${github_base_url:=https://github.com/fp-mt-test-org}"
 create_project_json="{
     \"templateName\": \"${template_name}\",
     \"values\": {
-        \"component_id\": \"${project_name}\",
+        \"name\": \"${project_name}\",
         \"description\": \"This project was created from the ${template_name} template.\",
         \"owner\": \"Product Infrastructure\",
         \"storePath\": \"${github_base_url}/${project_name}\",
@@ -20,10 +20,15 @@ create_project_json="{
     }
 }"
 
+post_url="${backstage_backend_base_url}/api/scaffolder/v2/tasks"
+
+echo "POST ${post_url}"
+echo "${create_project_json}"
+
 response=$(curl -s \
     -X POST -H "Content-Type: application/json" \
     -d "${create_project_json}" \
-    "${backstage_backend_base_url}/api/scaffolder/v2/tasks")
+    "${post_url}")
 
 if [[ $response =~ \{\"id\"\:\"(.+)\"\} ]]; then
     create_request_id="${BASH_REMATCH[1]}"

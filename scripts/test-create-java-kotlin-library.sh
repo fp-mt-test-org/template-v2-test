@@ -55,7 +55,7 @@ set -o nounset
 i=0 # Step counter
 owner_name='fp-mt-test-org'
 github_base_url="https://github.com/${owner_name}"
-template_name="template-v2-test"
+template_name="v1beta2-demo-2"
 flex='./flex.sh'
 
 echo "=================================="
