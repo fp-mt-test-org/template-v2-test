@@ -63,4 +63,4 @@ cat "${template_context_file}"
 
 echo "Pushing template and main branches to remote..."
 git push origin template
-git push -f origin master
+git push origin master
