@@ -41,7 +41,7 @@ spec:
         event_type: provision-library
         owner: fp-mt-test-org
         repo: development-infrastructure
-        client_payload: '{"project_name":"{{ parameters.name }}"}'
+        client_payload: '{"library_name":"{{ parameters.name }}"}'
 
     - id: publish
       name: Publish
