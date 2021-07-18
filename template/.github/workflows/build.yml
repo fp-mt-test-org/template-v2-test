@@ -19,6 +19,9 @@ jobs:
       artifactory_password: '{{"${{secrets.artifactory_password}}"}}'
 
     steps:
+    - name: Echo
+      run: echo ${artifactory_base_url}
+
     - name: Checkout Source
       uses: actions/checkout@v2
       with:
