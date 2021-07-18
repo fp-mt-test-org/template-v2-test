@@ -32,7 +32,7 @@ spec:
         url: ./template
         values:
           component_id: '{{ parameters.name }}'
-          java_package_name: '{{ parameters.name|replace('-', '') }}'
+          java_package_name: 'packagename'
 
     - id: provision
       name: Provisioning
