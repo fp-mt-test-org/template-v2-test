@@ -156,6 +156,8 @@ echo "Step $((i=i+1)): Verify Local Build is Successful"
 "${flex}" build
 echo
 echo "Step $((i=i+1)): Attempting update-template..."
+git fetch
+echo
 "${flex}" update-template
 echo
 echo "Passed!"
