@@ -9,7 +9,11 @@ if [[ ${CI:-} ]]; then
     git config user.email "ci@ci.com"
 fi
 
-git checkout -b initialize-template
+
+
+template_branch_name='initialize-template'
+
+git checkout -b "${template_branch_name}"
 
 template_context_file='.cookiecutter.json'
 install_script='battenberg-install-template.sh'
@@ -74,4 +78,4 @@ echo
 echo "Pushing template and current branches to remote..."
 git push origin template
 echo
-git push origin
+ git push --set-upstream origin "${template_branch_name}"
