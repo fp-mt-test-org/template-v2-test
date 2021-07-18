@@ -16,8 +16,9 @@ echo "${jfrog_config_show_output}"
 echo
 
 config_name='artifactory'
+config_name_pattern="Server ID:[[:space:]]*${config_name}"
 
-if ! [[ ${jfrog_config_show_output} =~ Server\sID\:\s*${config_name} ]]; then
+if ! [[ ${jfrog_config_show_output} =~ ${config_name_pattern} ]]; then
     echo "Configuring ${jfrog}..."
     jfrog c add "${config_name}" \
         --url="${artifactory_base_url}" \
