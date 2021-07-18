@@ -13,9 +13,14 @@ template_context_file='.cookiecutter.json'
 install_script='battenberg-install-template.sh'
 battenberg_output=$(./.ngif/${install_script} 2>&1 || true)
 
+echo "battenberg_output:"
 echo "${battenberg_output}"
-
+echo "end battenberg_output"
+echo
+echo "template_context_file:"
 cat "${template_context_file}"
+echo "end template_context_file."
+echo
 
 # The "|| true" above is to prevent this script from failing
 # in the event that initialize-template.sh fails due to errors,
@@ -60,7 +65,10 @@ fi
 
 echo
 cat "${template_context_file}"
-
+echo
+echo "Git Status:"
+git status
+echo
 echo "Pushing template and main branches to remote..."
 git push origin template
-git push -f origin master
+git push origin master

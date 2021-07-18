@@ -75,7 +75,7 @@ echo
 echo
 echo "Step $((i=i+1)): Wait for GitHub Repo to be Created"
 counter=0
-max_tries=10
+max_tries=20
 seconds_between_tries=3
 while true; do
     echo "${counter} Checking..."

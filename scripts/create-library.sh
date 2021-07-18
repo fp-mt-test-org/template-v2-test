@@ -24,6 +24,7 @@ post_url="${backstage_backend_base_url}/api/scaffolder/v2/tasks"
 
 echo "POST ${post_url}"
 echo "${create_project_json}"
+echo
 
 response=$(curl -s \
     -X POST -H "Content-Type: application/json" \
