@@ -6,7 +6,11 @@ set -o nounset
 
 brew install jfrog-cli
 
-jfrog c add -f artifactory \
+echo
+jfrog c show
+echo
+
+jfrog c add artifactory \
     --url="${artifactory_base_url}" \
     --user="${artifactory_username}" \
     --access-token="${artifactory_password}" \
