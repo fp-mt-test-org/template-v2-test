@@ -55,6 +55,7 @@ if [[ "${battenberg_output}" =~ "MergeConflictException" ]]; then
     echo
     cat "${template_context_file}"
     echo
+    git checkout -b initialize-template
     echo "Conflicts resolved, committing..."
     git add "${template_context_file}"
     git commit -m "fix: Resolved merge conflicts with template."
@@ -71,4 +72,5 @@ git status
 echo
 echo "Pushing template and main branches to remote..."
 git push origin template
+echo
 git push origin master
