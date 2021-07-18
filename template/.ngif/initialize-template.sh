@@ -71,7 +71,7 @@ echo
 echo "Git Status:"
 git status
 echo
-echo "Pushing template and main branches to remote..."
+echo "Pushing template and current branches to remote..."
 git push origin template
 echo
-git push origin master
+git push origin
