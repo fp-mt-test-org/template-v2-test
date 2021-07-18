@@ -141,6 +141,8 @@ echo
 
 echo "Step $((i=i+1)): Verify Artifact was Published"
 artifact_url="${artifactory_base_url}/artifactory/${project_name}-mvn-dev-local/${project_name}/1.1.0/${project_name}-1.1.0.jar"
+echo "Attempting to download:"
+echo "${artifact_url}"
 curl \
     "${artifact_url}" \
     --output "${project_name}-1.1.0.jar"
