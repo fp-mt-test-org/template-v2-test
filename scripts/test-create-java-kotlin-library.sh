@@ -140,10 +140,10 @@ done
 echo
 
 echo "Step $((i=i+1)): Verify Artifact was Published"
-artifact_url="https://artifactory.flexport.io/artifactory/lib-from-template-mvn-sandbox-local/lib-from-template/1.1.0-SNAPSHOT/lib-from-template-1.1.0-SNAPSHOT.jar"
+artifact_url="${artifactory_base_url}/artifactory/${project_name}-mvn-dev-local/${project_name}/1.1.0/${project_name}-1.1.0.jar"
 curl \
     "${artifact_url}" \
-    --output lib-from-template-1.1.0-SNAPSHOT.jar
+    --output "${project_name}-1.1.0.jar"
 echo "Artifact download successful!"
 echo
 echo "Step $((i=i+1)): Clone repo locally"
@@ -238,6 +238,6 @@ echo
 # echo "Step $((i=i+1)): Verify the Release"
 # curl https://artifactory.flexport.io/artifactory/template-java-kotlin-library-mvn-sandbox-local/
 
-# echo "Step $((i=i+1)): Cleanup"
-# cd ..
-# rm -fdr "${repo_name}"
+echo "Step $((i=i+1)): Cleanup"
+cd ..
+rm -fdr "${project_name}"
