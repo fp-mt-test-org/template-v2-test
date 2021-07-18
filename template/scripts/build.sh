@@ -18,4 +18,4 @@ jfrog rt \
     artifactoryPublish -b build.gradle \
     --build-name={{cookiecutter.component_id}} \
     --build-number=1 \
-    -Pversion=1.1.0-SNAPSHOT
+    -Pversion=1.1.0

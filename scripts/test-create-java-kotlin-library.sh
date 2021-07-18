@@ -8,7 +8,7 @@ set -o nounset
 # The purpose is to perform the same actions the README is asking
 # people to do so we can catch any regressions with it.
 
-# github_owner='fp-mt-test-org'
+github_owner='fp-mt-test-org'
 
 # generate_project_name() {
 #     random_string=$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 5 ; echo)
@@ -53,8 +53,7 @@ set -o nounset
 # }
 
 i=0 # Step counter
-owner_name='fp-mt-test-org'
-github_base_url="https://github.com/${owner_name}"
+github_base_url="https://github.com/${github_owner}"
 template_name="v1beta2-demo-2"
 flex='./flex.sh'
 
@@ -97,48 +96,48 @@ while true; do
     sleep "${seconds_between_tries}"
 done
 echo 
-# echo "Step $((i=i+1)): Verify CI Build is Successful"
-# counter=0
-# max_tries=100
-# seconds_between_tries=3
-# while true; do
-#     echo "${counter} Checking for build result..."
-#     response=$(eval "$get_actions_curl_command")
+echo "Step $((i=i+1)): Verify CI Build is Successful"
+counter=0
+max_tries=100
+seconds_between_tries=3
+while true; do
+    echo "${counter} Checking for build result..."
+    response=$(eval "$get_actions_curl_command")
 
-#     if [[ "${response}" =~ \"status\"\:[[:space:]]+\"([A-Za-z_]+)\" ]]; then
-#         status="${BASH_REMATCH[1]}"
-#         echo "status: ${status}"
-#     else
-#         status="unknown"
-#     fi
+    if [[ "${response}" =~ \"status\"\:[[:space:]]+\"([A-Za-z_]+)\" ]]; then
+        status="${BASH_REMATCH[1]}"
+        echo "status: ${status}"
+    else
+        status="unknown"
+    fi
 
-#     if [[ "${response}" =~ \"conclusion\"\:[[:space:]]+\"*([A-Za-z_]+)\"* ]]; then
-#         conclusion="${BASH_REMATCH[1]}"
-#         echo "conclusion: ${conclusion}"
-#     else
-#         conclusion="unknown"
-#     fi
+    if [[ "${response}" =~ \"conclusion\"\:[[:space:]]+\"*([A-Za-z_]+)\"* ]]; then
+        conclusion="${BASH_REMATCH[1]}"
+        echo "conclusion: ${conclusion}"
+    else
+        conclusion="unknown"
+    fi
 
-#     if [[ "${status}" == "completed" ]]; then
-#         if [[ "${conclusion}" != "success" ]]; then
-#             echo "Build was not successful, test failed!"
-#             exit 1
-#         else
-#             break
-#         fi
-#     fi
+    if [[ "${status}" == "completed" ]]; then
+        if [[ "${conclusion}" != "success" ]]; then
+            echo "Build was not successful, test failed!"
+            exit 1
+        else
+            break
+        fi
+    fi
 
-#     if [[ "${max_tries}" == "${counter}" ]]; then
-#         echo "Giving up after ${max_tries}, test failed!"
-#         exit 1
-#     fi
+    if [[ "${max_tries}" == "${counter}" ]]; then
+        echo "Giving up after ${max_tries}, test failed!"
+        exit 1
+    fi
 
-#     counter=$((counter+1))
-#     sleep "${seconds_between_tries}"
+    counter=$((counter+1))
+    sleep "${seconds_between_tries}"
 
-#     echo
-# done
-# echo
+    echo
+done
+echo
 
 echo "Step $((i=i+1)): Verify Artifact was Published"
 artifact_url="https://artifactory.flexport.io/artifactory/lib-from-template-mvn-sandbox-local/lib-from-template/1.1.0-SNAPSHOT/lib-from-template-1.1.0-SNAPSHOT.jar"
@@ -167,7 +166,7 @@ curl \
   -X DELETE \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token ${GITHUB_TOKEN}" \
-   "https://api.github.com/repos/${owner_name}/${project_name}"
+   "https://api.github.com/repos/${github_owner}/${project_name}"
 echo
 echo "Done!"
 echo
