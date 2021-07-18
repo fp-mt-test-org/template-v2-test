@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-brew install jfrog-cli@2.0.1
+brew install jfrog-cli
 
 jfrog c add artifactory \
     --url="${artifactory_base_url}" \
