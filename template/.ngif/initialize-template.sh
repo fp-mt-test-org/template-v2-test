@@ -9,6 +9,8 @@ if [[ ${CI:-} ]]; then
     git config user.email "ci@ci.com"
 fi
 
+git checkout -b initialize-template
+
 template_context_file='.cookiecutter.json'
 install_script='battenberg-install-template.sh'
 battenberg_output=$(./.ngif/${install_script} 2>&1 || true)
@@ -55,7 +57,6 @@ if [[ "${battenberg_output}" =~ "MergeConflictException" ]]; then
     echo
     cat "${template_context_file}"
     echo
-    git checkout -b initialize-template
     echo "Conflicts resolved, committing..."
     git add "${template_context_file}"
     git commit -m "fix: Resolved merge conflicts with template."
