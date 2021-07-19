@@ -82,6 +82,10 @@ updated_contents="${template_context_file_contents/$current_template_url/$templa
 echo "Contents after update:"
 echo "${updated_contents}"
 echo
+echo "Saving..."
+echo "${updated_contents}" > "${template_context_file}"
+git commit -am "Updated template url."
+echo
 echo "Git Status:"
 git status
 echo
