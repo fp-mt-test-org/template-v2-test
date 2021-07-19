@@ -28,12 +28,12 @@ if ! [[ ${git_branches} =~ ${template_branch_name} ]]; then
     echo "end checkout_output."
     echo
 
-    if [[ ${checkout_output} =~ ${error_pattern} ]]; then
+    if [[ "${checkout_output}" == "${error_pattern}" ]]; then
         echo "Template needs to be initialized, initializing..."
         ./.ngif/initialize-template.sh
     else
         echo "${template_branch_name} branch exists, switching to it."
-        git checkout "${default_branch}"
+        git checkout "${template_branch_name}"
     fi
 else
     echo "Template has been previously initialized."
