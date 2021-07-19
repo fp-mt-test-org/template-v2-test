@@ -53,4 +53,20 @@ echo
     jq -r '.java_package_name' ${template_context_path}
     sleep 1;
 
+    # java_package_name [javakotlinlibtest*****]:
+    jq -r '.description' ${template_context_path}
+    sleep 1;
+
+    # java_package_name [javakotlinlibtest*****]:
+    jq -r '.secrets_artifactory_base_url' ${template_context_path}
+    sleep 1;
+
+    # java_package_name [javakotlinlibtest*****]:
+    jq -r '.secrets_artifactory_username' ${template_context_path}
+    sleep 1;
+
+    # java_package_name [javakotlinlibtest*****]:
+    jq -r '.secrets_artifactory_password' ${template_context_path}
+    sleep 1;
+
 } | battenberg install "${template_url}"
