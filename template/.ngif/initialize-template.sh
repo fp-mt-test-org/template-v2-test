@@ -71,12 +71,11 @@ fi
 
 echo
 template_context_file_contents=$(cat "${template_context_file}")
-pattern='"_template": ".*",'
-replace_with="\"_template\": \"${template_url}\","
+current_template_url="echo ${template_context_file_contents} | jq -r '._template'"
 echo "${template_context_file_contents}"
 echo
 echo "updated:"
-updated_contents="${template_context_file_contents/$pattern/$replace_with}"
+updated_contents="${template_context_file_contents/$current_template_url/$template_url}"
 echo "${updated_contents}"
 echo
 echo "Git Status:"
