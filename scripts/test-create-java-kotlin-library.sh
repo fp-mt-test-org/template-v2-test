@@ -159,7 +159,12 @@ echo "Step $((i=i+1)): Verify Local Build is Successful"
 "${flex}" build
 echo
 echo "Step $((i=i+1)): Attempting update-template..."
-git fetch
+git fetch --all # Make sure we have latest version from source.
+
+# Temporary hack:
+# Merging here to simulate a developer merging this change....
+git merge initialize-template
+
 echo
 "${flex}" update-template
 echo

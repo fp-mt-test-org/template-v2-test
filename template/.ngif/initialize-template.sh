@@ -92,4 +92,4 @@ echo
 echo "Pushing template and current branches to remote..."
 git push origin template
 echo
- git push --set-upstream origin "${template_branch_name}"
+git push --set-upstream origin "${template_branch_name}"
