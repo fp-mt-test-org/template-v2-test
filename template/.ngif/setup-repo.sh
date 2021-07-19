@@ -19,9 +19,14 @@ echo
 if ! [[ ${git_branches} =~ ${template_branch_name} ]]; then
     echo "${template_branch_name} branch doesn't exist."
     echo
-    
+
     checkout_output=$(git checkout ${template_branch_name} 2>&1 || true)
     error_pattern="error: pathspec '${template_branch_name}' did not match any file(s) known to git"
+
+    echo "checkout_output:"
+    echo "${checkout_output}"
+    echo "end checkout_output."
+    echo
 
     if [[ ${checkout_output} =~ ${error_pattern} ]]; then
         echo "Template needs to be initialized, initializing..."
