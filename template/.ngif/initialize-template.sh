@@ -71,7 +71,7 @@ fi
 
 echo
 template_context_file_contents=$(cat "${template_context_file}")
-current_template_url="echo ${template_context_file_contents} | jq -r '._template'"
+current_template_url=$(echo "${template_context_file_contents}" | jq -r '._template')
 
 echo "Contents before update:"
 echo "${template_context_file_contents}"
