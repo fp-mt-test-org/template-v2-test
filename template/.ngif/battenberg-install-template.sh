@@ -10,6 +10,11 @@ set -o nounset
 template_context_file='.cookiecutter.json'
 template_context_path="./${template_context_file}"
 
+echo "template_context_file:"
+cat "${template_context_path}"
+echo "end template_context_file."
+echo
+
 # This codeblock answers the prompts issued by battenberg below.
 {
     if [[ -d "$HOME/.cookiecutters" ]]; then
