@@ -108,9 +108,10 @@ while true; do
         status="${BASH_REMATCH[1]}"
         echo "status: ${status}"
     else
-        echo "ERROR: Status unknown:"
+        status="unknown"
+        echo "Result unknown:"
         echo "${response}"
-        exit 1
+        echo
     fi
 
     if [[ "${response}" =~ \"conclusion\"\:[[:space:]]+\"*([A-Za-z_]+)\"* ]]; then

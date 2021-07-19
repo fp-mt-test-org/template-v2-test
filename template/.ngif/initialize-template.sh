@@ -9,8 +9,6 @@ if [[ ${CI:-} ]]; then
     git config user.email "ci@ci.com"
 fi
 
-
-
 template_branch_name='initialize-template'
 
 git checkout -b "${template_branch_name}"
@@ -19,6 +17,7 @@ template_context_file='.cookiecutter.json'
 install_script='battenberg-install-template.sh'
 battenberg_output=$(./.ngif/${install_script} 2>&1 || true)
 
+echo
 echo "battenberg_output:"
 echo "${battenberg_output}"
 echo "end battenberg_output"
@@ -31,10 +30,6 @@ echo
 # The "|| true" above is to prevent this script from failing
 # in the event that initialize-template.sh fails due to errors,
 # such as merge conflicts.
-
-echo "artifactory_base_url: ${artifactory_base_url}"
-echo "artifactory_username: ${artifactory_username}"
-echo "artifactory_password: ${artifactory_password}"
 
 echo
 echo "Checking for MergeConflictExceptions..."
@@ -66,7 +61,6 @@ if [[ "${battenberg_output}" =~ "MergeConflictException" ]]; then
     git commit -m "fix: Resolved merge conflicts with template."
 else
     echo "No merge conflicts detected."
-    # exit 1
 fi
 
 echo
@@ -75,6 +69,11 @@ echo
 echo "Git Status:"
 git status
 echo
+
+template_field='_template'
+echo "Updating ${template_field} field from:"
+
+
 echo "Pushing template and current branches to remote..."
 git push origin template
 echo
