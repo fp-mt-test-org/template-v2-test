@@ -22,6 +22,12 @@ echo "battenberg_output:"
 echo "${battenberg_output}"
 echo "end battenberg_output"
 echo
+
+if [[ ${battenberg_output} =~ Aborted! ]]; then
+    echo "Battenberg aborted!"
+    exit 1
+fi
+
 echo "template_context_file:"
 cat "${template_context_file}"
 echo "end template_context_file."
