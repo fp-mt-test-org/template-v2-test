@@ -14,9 +14,7 @@ create_project_json="{
     \"values\": {
         \"name\": \"${project_name}\",
         \"description\": \"This project was created from the ${template_name} template.\",
-        \"owner\": \"Product Infrastructure\",
-        \"storePath\": \"${github_base_url}/${project_name}\",
-        \"access\": \"fp-mt\"
+        \"storePath\": \"${github_base_url}/${project_name}\"
     }
 }"
 

@@ -1,7 +1,6 @@
 {
     "template": "https://github.com/fp-mt-test-org/template-v2-test",
-    "owner": "Product Infrastructure",
-    "component_id": "test",
+    "component_id": "{{ cookiecutter.component_id }}",
     "repo_owner": "fp-mt-test-org",
     "artifact_id": "{{ cookiecutter.component_id }}",
     "storePath": "https://github.com/{{ cookiecutter.repo_owner }}/{{ cookiecutter.component_id }}",
