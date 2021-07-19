@@ -15,10 +15,15 @@ cat "${template_context_path}"
 echo "end template_context_file."
 echo
 
+template_url="${github_base_url}/${template_name}"
+
+echo "Installing ${template_url}"
+echo
+
 # This codeblock answers the prompts issued by battenberg below.
 {
     if [[ -d "$HOME/.cookiecutters" ]]; then
-        # You've downloaded .../.cookiecutters/template-java-kotlin-library before.
+        # You've downloaded ... before.
         # Is it okay to delete and re-download it? [yes]:
         echo "1";
         sleep 1;
@@ -32,4 +37,4 @@ echo
     jq -r '.java_package_name' ${template_context_path}
     sleep 1;
 
-} | battenberg install "${github_base_url}/${template_name}"
+} | battenberg install "${template_url}"
