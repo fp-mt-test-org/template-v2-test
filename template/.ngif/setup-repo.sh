@@ -35,8 +35,8 @@ if ! [[ ${git_branches} =~ ${template_branch_name} ]]; then
         echo "${template_branch_name} branch exists, switching to it."
         git checkout "${template_branch_name}"
     fi
+
+    git checkout "${default_branch}"
 else
     echo "Template has been previously initialized."
 fi
-
-git checkout "${default_branch}"

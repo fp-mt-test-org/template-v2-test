@@ -70,16 +70,18 @@ else
 fi
 
 echo
-cat "${template_context_file}"
+template_context_file_contents=$(cat "${template_context_file}")
+pattern='"_template": ".*",'
+replace_with="\"_template\": \"${template_url}\","
+echo "${template_context_file_contents}"
+echo
+echo "updated:"
+updated_contents="${template_context_file_contents/$pattern/$replace_with}"
+echo "${updated_contents}"
 echo
 echo "Git Status:"
 git status
 echo
-
-template_field='_template'
-echo "Updating ${template_field} field from:"
-echo "UPDATE ME"
-
 echo "Pushing template and current branches to remote..."
 git push origin template
 echo
