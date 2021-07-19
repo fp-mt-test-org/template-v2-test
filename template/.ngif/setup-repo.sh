@@ -38,3 +38,7 @@ if ! [[ ${git_branches} =~ ${template_branch_name} ]]; then
 else
     echo "Template has been previously initialized."
 fi
+
+pwd
+echo
+ls -la
