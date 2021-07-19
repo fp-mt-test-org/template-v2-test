@@ -72,7 +72,7 @@ echo
 
 template_field='_template'
 echo "Updating ${template_field} field from:"
-
+echo "UPDATE ME"
 
 echo "Pushing template and current branches to remote..."
 git push origin template
