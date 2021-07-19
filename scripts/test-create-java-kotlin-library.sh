@@ -29,7 +29,7 @@ github_owner='fp-mt-test-org'
 #     echo "Wait for GitHub Repo to be Created..."
 #     counter=0
 #     max_tries=10
-#     seconds_between_tries=3
+#     seconds_between_tries=5
 #     while true; do
 #         echo "${counter} Checking..."
 #         response=$(eval "${get_actions_curl_command}")
@@ -75,7 +75,7 @@ echo
 echo "Step $((i=i+1)): Wait for GitHub Repo to be Created"
 counter=0
 max_tries=20
-seconds_between_tries=3
+seconds_between_tries=5
 while true; do
     echo "${counter} Checking..."
     response=$(eval "${get_actions_curl_command}")
@@ -99,7 +99,7 @@ echo
 echo "Step $((i=i+1)): Verify CI Build is Successful"
 counter=0
 max_tries=100
-seconds_between_tries=3
+seconds_between_tries=5
 while true; do
     echo "${counter} Checking for build result..."
     response=$(eval "$get_actions_curl_command")

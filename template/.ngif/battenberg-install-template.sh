@@ -45,6 +45,10 @@ echo
     jq -r '.artifact_id' ${template_context_path}
     sleep 1;
 
+    # storePath [javakotlinlibtest*****]:
+    jq -r '.storePath' ${template_context_path}
+    sleep 1;
+
     # java_package_name [javakotlinlibtest*****]:
     jq -r '.java_package_name' ${template_context_path}
     sleep 1;
