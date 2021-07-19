@@ -39,6 +39,4 @@ else
     echo "Template has been previously initialized."
 fi
 
-pwd
-echo
-ls -la
+git checkout "${default_branch}"
