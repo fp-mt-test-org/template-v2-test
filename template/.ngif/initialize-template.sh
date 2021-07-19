@@ -72,10 +72,14 @@ fi
 echo
 template_context_file_contents=$(cat "${template_context_file}")
 current_template_url="echo ${template_context_file_contents} | jq -r '._template'"
+
+echo "Contents before update:"
 echo "${template_context_file_contents}"
 echo
-echo "updated:"
+echo "Replacing '${$current_template_url}' with '${template_url}'"
+echo 
 updated_contents="${template_context_file_contents/$current_template_url/$template_url}"
+echo "Contents after update:"
 echo "${updated_contents}"
 echo
 echo "Git Status:"
