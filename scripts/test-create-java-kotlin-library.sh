@@ -163,7 +163,7 @@ git fetch --all # Make sure we have latest version from source.
 
 # Temporary hack:
 # Merging here to simulate a developer merging this change....
-git merge initialize-template
+git merge origin/initialize-template
 
 echo
 "${flex}" update-template
