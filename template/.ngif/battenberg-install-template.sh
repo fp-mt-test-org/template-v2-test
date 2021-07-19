@@ -37,6 +37,14 @@ echo
     jq -r '.component_id' ${template_context_path}
     sleep 1;
 
+    # repo_owner []:
+    jq -r '.repo_owner' ${template_context_path}
+    sleep 1;
+
+    # artifact_id [javakotlinlibtest*****]:
+    jq -r '.artifact_id' ${template_context_path}
+    sleep 1;
+
     # java_package_name [javakotlinlibtest*****]:
     jq -r '.java_package_name' ${template_context_path}
     sleep 1;
