@@ -29,6 +29,10 @@ echo
         sleep 1;
     fi
 
+    # template []:
+    echo # accept the default
+    sleep 1;
+
     # component_id []:
     jq -r '.component_id' ${template_context_path}
     sleep 1;
