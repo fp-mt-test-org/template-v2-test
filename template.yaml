@@ -5,10 +5,9 @@ metadata:
   name: v1beta2-demo-2
   title: Test Action template 2
   description: scaffolder v1beta2 template demo
-  template: /some/place
 spec:
   owner: backstage/techdocs-core
-  type: service
+  type: library
 
   # these are the steps which are rendered in the frontend with the form input
   parameters:
